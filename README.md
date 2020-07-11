@@ -1,6 +1,5 @@
 # Triplan Capstone Project
 
-
 ## Overview
 
 This is the capstone project for udacity, the point of the project is to showcase my skills as a front-end developer taught in the class.
@@ -19,12 +18,20 @@ data so that user will know the temputure of their location apon arrival.
 Front-end
 * HTML
 * CSS/SCSS
+  * flex-box
+  * grid-templates
 * javascript
+  * DOM manipulation
+  * fetch API
 
 Server-side:
 * node.js
+  * express server
 
 build-tools:
 * npm
 * webpack
+  * service-pack
 
+API:
+* weather API
