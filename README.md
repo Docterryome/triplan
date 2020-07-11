@@ -8,14 +8,15 @@ This is the capstone project for udacity, the point of the project is to showcas
 
 Allow a user to use our user interface to plan a trip to a location of their choice. During this we will provide information to help them better prepare for their trip at hand.
 
-## How do we do this?
+## How do we do this
 
 We are going to do it by creating a wepage that will use a form to get trip information from a user. We will then take that information from the user and use api services to gather weather
 data so that user will know the temputure of their location apon arrival.
 
-### Technolegy that will be used
+### Technology that will be used
 
-Front-end
+**Front-End:**
+
 * HTML
 * CSS/SCSS
   * flex-box
@@ -24,14 +25,20 @@ Front-end
   * DOM manipulation
   * fetch API
 
-Server-side:
+**Server-side:**
+
 * node.js
   * express server
 
-build-tools:
+**Build-tools:**
+
 * npm
 * webpack
   * service-pack
 
 API:
-* weather API
+
+* [weather API](https://openweathermap.org/api)
+* [geoNames API](http://www.geonames.org/export/web-services.html)
+* [Weatherbit](https://www.weatherbit.io/account/create)
+* [Pixabay](https://pixabay.com/api/docs/)
