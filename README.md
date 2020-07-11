@@ -42,3 +42,7 @@ API:
 * [geoNames API](http://www.geonames.org/export/web-services.html)
 * [Weatherbit](https://www.weatherbit.io/account/create)
 * [Pixabay](https://pixabay.com/api/docs/)
+
+## TODO
+
+Go to [project](https://github.com/Docterryome/triplan/projects) page for this application to see what needs to be done for the application.
