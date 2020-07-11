@@ -1,0 +1,23 @@
+{
+  "name": "triplan",
+  "version": "1.0.0",
+  "description": "Capstone project for udacity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Docterryome/triplan.git"
+  },
+  "keywords": [
+    "trip",
+    "udacity"
+  ],
+  "author": "Docterryome Wilkins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Docterryome/triplan/issues"
+  },
+  "homepage": "https://github.com/Docterryome/triplan#readme"
+}
