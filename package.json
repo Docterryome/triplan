@@ -4,7 +4,8 @@
   "description": "Capstone project for udacity",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,10 @@
   "homepage": "https://github.com/Docterryome/triplan#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "lodash": "^4.17.19",
     "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
   }
 }
