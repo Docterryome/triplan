@@ -4,19 +4,20 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: './src/client/js/index.js',
+    entry: './src/client/js/app.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devtools: 'inline-source-map',
-    devserver: {
+    devtool: 'inline-source-map',
+    devServer: {
         contentBase: './dist'
     },
     plugins: [
         new CleanWebpackPlugin({cleanStaleWebpackAssets: true}),
         new HtmlWebpackPlugin({
-            title: 'Triplin'
+            filename: './src/client/index.html',
+            title: 'Triplins'
         })
     ],
     module: {
