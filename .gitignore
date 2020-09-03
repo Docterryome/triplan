@@ -1,2 +1,5 @@
 .vagrant/
 node_modules/
+dist/
+.env
+password
