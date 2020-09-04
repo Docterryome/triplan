@@ -16,7 +16,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin({cleanStaleWebpackAssets: true}),
         new HtmlWebpackPlugin({
-            filename: './src/client/index.html',
+            template: './src/client/index.html',
             title: 'Triplins'
         })
     ],

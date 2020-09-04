@@ -1,11 +1,14 @@
 //Create a form in the UI and have the variables elements in here
-
+import {parseDate, getDays} from './countdown';
 //Create an array of start date and end date objects
 
-const datesArray = [];
+const button = document.getElementById('clickMe');
 
 
-const parseDate = (str) => {
-    const dateArr = str.split("-");
-    return new Date(dateArr[0], dateArr[1], dateArr[2]);
-}
+button.addEventListener("click", () =>{
+    const startDate = parseDate(document.getElementById('startDate').value);
+    const endDate = parseDate(document.getElementById('endDate').value);
+    console.log(startDate);
+    console.log(endDate);
+    console.log(getDays(startDate, endDate));
+});
