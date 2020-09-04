@@ -13,6 +13,6 @@ button.addEventListener("click", () =>{
     const endDate = parseDate(document.getElementById('endDate').value);
     console.log(startDate);
     console.log(endDate);
-    console.log(getDays(startDate, endDate));
+    console.log(getDays(startDate));
     getGeoLocation(document.getElementById('city').value).then(data => {console.log(data)});
 });
