@@ -14,6 +14,5 @@ button.addEventListener("click", () =>{
     console.log(startDate);
     console.log(endDate);
     console.log(getDays(startDate, endDate));
-    getGeoLocation("Memphis").then(data => {console.log(data)});
-
+    getGeoLocation(document.getElementById('city').value).then(data => {console.log(data)});
 });
