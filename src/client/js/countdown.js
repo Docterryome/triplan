@@ -3,7 +3,7 @@
 /* Date format per input: YYYY-MM-DD */
 export const parseDate = (str) => {
     const dateArr = str.split("-");
-    return new Date(dateArr[0], dateArr[1], dateArr[2]);
+    return new Date(dateArr[0], parseInt(dateArr[1]) - 1, dateArr[2]);
 };
 
 
