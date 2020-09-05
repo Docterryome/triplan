@@ -1,11 +1,10 @@
-//Create a form in the UI and have the variables elements in here
+//Import functions here
 import {parseDate, getDays} from './countdown';
 import {getGeoLocation, getLongitudeLatitude} from './geoNames';
 
-//Create an array of start date and end date objects
+
 
 const button = document.getElementById('clickMe');
-
 
 //CountDown
 button.addEventListener("click", () => {
