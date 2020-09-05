@@ -7,8 +7,8 @@ export const parseDate = (str) => {
 };
 
 
-export const getDays = (date1) => {
+export const getDays = (date1, date2) => {
     //Miliseconds -> seconds -> hours -> days
     const milisPerDay = 1000 * 60 * 60 * 24;
-    return Math.floor(Math.abs(date1 - Date.now()) / milisPerDay);
+    return Math.floor(Math.abs(date1 - date2) / milisPerDay);
 };
