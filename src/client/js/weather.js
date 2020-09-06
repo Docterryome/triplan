@@ -12,19 +12,20 @@ export const getWeatherData = async (cityData, date) => {
     let weatherURL;
     const daysAhead = getDays(date, Date.now()) + 1;
     //If Date is greater than 16 days get historical date to predict temp
-    const dtFormat = new Intl.DateTimeFormat("en", {year: "numeric", mount: "2-digit", day: "2-digit"});
+    const dtFormat = new Intl.DateTimeFormat("en", {year: "numeric", month: "2-digit", day: "2-digit"});
     console.log("Days Ahead: " + daysAhead);
     if( daysAhead < 16){
         weatherURL = { url: `${weatherBitAPI}/forecast/daily?days=${daysAhead}&lat=${cityData.lat}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
         console.log(JSON.stringify(weatherURL));
-        response = postData(`${LOCALSERVER}/getWeather`, weatherURL);
+        response = await postData(`${LOCALSERVER}/getWeather`, weatherURL);
         return response.json();
     }
     //Get 16 day forcast
     else{
+        console.log(dtFormat.format(date));
         const startDate = parseEnDateByYear(dtFormat.format(date), 1);
         const endDate = parseDateAddDays(startDate, 1);
-        weatherURL = {url: `${weatherBitAPI}/history/daily&lat=${cityData.lat}&start_date=${startDate}&end_date=${endDate}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
+        weatherURL = {url: `${weatherBitAPI}/history/daily?lat=${cityData.lat}&start_date=${startDate}&end_date=${endDate}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
         response = await postData(`${LOCALSERVER}/getWeather`, weatherURL);
         return response.json();
     }
