@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.static("dist"));
-app.listen(8080, () => console.log("Running on Port 8080"));
+app.listen(3000, () => console.log("Running on Port 8080"));
 
 async function getWeather(request, response) {
     console.log(request.body);

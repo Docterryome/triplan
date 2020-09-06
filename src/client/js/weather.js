@@ -3,20 +3,21 @@ import {getDays} from './countdown';
 import { initial } from 'lodash';
 
 //WeatherBit api key
-const weatherBitAPI = "http://api.weatherbit.io/v2.0"
-const API_KEY = "09959aeb527c4c0589b4fc648879cd70"
+const weatherBitAPI = "http://api.weatherbit.io/v2.0";
+const API_KEY = "09959aeb527c4c0589b4fc648879cd70";
+const LOCALSERVER = "http://localhost:3000";
 
 
 export const getWeatherData = async (cityData, date) => {
     let response;
-    const daysAhead = getDays(date, Date.now());
+    const daysAhead = getDays(date, Date.now()) + 1;
     //If Date is greater than 16 days get historical date to predict temp
     const dtFormat = new Intl.DateTimeFormat("en", {year: "numeric", mount: "2-digit", day: "2-digit"});
     console.log("Days Ahead: " + daysAhead);
     if( daysAhead < 16){
         let weatherURL = { url: `${weatherBitAPI}/forecast/daily?days=${daysAhead}&lat=${cityData.lat}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
         console.log(JSON.stringify(weatherURL));
-        response = await fetch('/getWeather', {
+        response = await fetch(`${LOCALSERVER}/getWeather`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

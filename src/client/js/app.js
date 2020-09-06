@@ -18,7 +18,17 @@ button.addEventListener("click", () => {
             console.log(data);
             const cityCord = getLongitudeLatitude(data);
             //Get weather data by inputing the city Cordinates and also input the date
-            getWeatherData(cityCord, startDate).then(data => console.log(data));
+            getWeatherData(cityCord, startDate).then(data => printData(data, getPixaBay));
         }
     );
 });
+
+
+function printData(weatherData){
+    console.log(weatherData.data);
+    console.log(weatherData.data[weatherData.data.length - 1]);
+}
+
+function getPixaBay(){
+
+}
