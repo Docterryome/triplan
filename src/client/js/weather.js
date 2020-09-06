@@ -14,8 +14,15 @@ export const getWeatherData = async (cityData, date) => {
     const dtFormat = new Intl.DateTimeFormat("en", {year: "numeric", mount: "2-digit", day: "2-digit"});
     console.log("Days Ahead: " + daysAhead);
     if( daysAhead < 16){
-        response = await fetch(`${weatherBitAPI}/forecast/daily?days=${daysAhead}&lat=${cityData.lat}&lon=${cityData.lng}&units=I&key=${API_KEY}`);
-        console.log(response);
+        let weatherURL = { url: `${weatherBitAPI}/forecast/daily?days=${daysAhead}&lat=${cityData.lat}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
+        console.log(JSON.stringify(weatherURL));
+        response = await fetch('/getWeather', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(weatherURL)
+        });
         return response.json();
     }
     //Get 16 day forcast
