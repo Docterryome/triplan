@@ -1,5 +1,6 @@
 //Import countdown Libraries
 import {getDays} from './countdown';
+import {postData} from './request';
 
 //WeatherBit api key
 const weatherBitAPI = "http://api.weatherbit.io/v2.0";
@@ -42,13 +43,3 @@ export const parseDateAddDays = (str, days) => {
     return `${datef[0]}-${datef[1]}-${parseInt(datef[2]) + days}`
 }
 
-export const postData = async (url, body) => {
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    });
-    return response;
-}
