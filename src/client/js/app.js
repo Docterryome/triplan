@@ -2,6 +2,7 @@
 import {parseDate, getDays} from './countdown';
 import {getGeoLocation, getLongitudeLatitude} from './geoNames';
 import { getWeatherData } from './weather';
+import { getPixaBayData } from './pixabay';
 
 
 
@@ -18,17 +19,20 @@ button.addEventListener("click", () => {
             console.log(data);
             const cityCord = getLongitudeLatitude(data);
             //Get weather data by inputing the city Cordinates and also input the date
-            getWeatherData(cityCord, startDate).then(data => printData(data, getPixaBay));
+            getWeatherData(cityCord, startDate).then(data => printData(data, getPixaBayData));
         }
     );
 });
 
 
-function printData(weatherData){
-    console.log(weatherData.data);
+function printData(weatherData, callback){
+    console.log(weatherData);
     console.log(weatherData.data[weatherData.data.length - 1]);
+    callback(weatherData.city_name).then(pixaData => {
+        console.log(pixaData);
+    })
 }
 
-function getPixaBay(){
-
+function getPixaBay(searchInfo){
+    console.log("GitPixaBay stuff " + searchInfo);
 }
