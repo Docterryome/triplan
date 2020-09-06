@@ -1,6 +1,7 @@
 //Import functions here
 import {parseDate, getDays} from './countdown';
 import {getGeoLocation, getLongitudeLatitude} from './geoNames';
+import { getWeatherData } from './weather';
 
 
 
@@ -16,7 +17,18 @@ button.addEventListener("click", () => {
     getGeoLocation(document.getElementById('city').value).then(data => {
             console.log(data);
             const cityCord = getLongitudeLatitude(data);
-            console.log(cityCord);
+            //Get weather data by inputing the city Cordinates and also input the date
+            getWeatherData(cityCord, startDate).then(data => printData(data, getPixaBay));
         }
     );
 });
+
+
+function printData(weatherData){
+    console.log(weatherData.data);
+    console.log(weatherData.data[weatherData.data.length - 1]);
+}
+
+function getPixaBay(){
+
+}
