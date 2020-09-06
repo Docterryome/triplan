@@ -1,6 +1,5 @@
 //Import countdown Libraries
 import {getDays} from './countdown';
-import { response } from 'express';
 
 //WeatherBit api key
 const weatherBitAPI = "http://api.weatherbit.io/v2.0";
