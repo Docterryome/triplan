@@ -12,9 +12,7 @@ const button = document.getElementById('clickMe');
 button.addEventListener("click", () => {
     const startDate = parseDate(document.getElementById('startDate').value);
     const endDate = parseDate(document.getElementById('endDate').value);
-    console.log(startDate);
-    console.log(endDate);
-    console.log(getDays(startDate, Date.now()));
+    const countDown = getDays(startDate, Date.now());
     getGeoLocation(document.getElementById('city').value).then(data => {
             console.log(data);
             const cityCord = getLongitudeLatitude(data);
@@ -24,15 +22,18 @@ button.addEventListener("click", () => {
     );
 });
 
-
+//Get Min and Max Weather Data and display it on the screen
 function printData(weatherData, callback){
     console.log(weatherData);
-    console.log(weatherData.data[weatherData.data.length - 1]);
+    const startWeather = weatherData.data[weatherData.data.length - 1];
     callback(weatherData.city_name).then(pixaData => {
-        console.log(pixaData);
-    })
+        const img = document.createElement('img');
+        img.src = pixaData.hits[getRandomInt(pixaData.hits.length - 1)].webformatURL;
+        document.body.appendChild(img);
+    });
 }
 
-function getPixaBay(searchInfo){
-    console.log("GitPixaBay stuff " + searchInfo);
+
+function getRandomInt(num){
+    return Math.floor(Math.random() * Math.floor(Math.max(num)));
 }
