@@ -3,6 +3,7 @@ import {parseDate, getDays} from './countdown';
 import {getGeoLocation, getLongitudeLatitude} from './geoNames';
 import { getWeatherData } from './weather';
 import { getPixaBayData } from './pixabay';
+import '../styles/main.scss';
 
 
 
@@ -34,6 +35,7 @@ function printData(weatherData, callback){
         const maxTemp = startWeather.max_temp;
         const minTemp = startWeather.min_temp;
         temp.textContent = `Max Temp: ${maxTemp} Min Temp: ${minTemp}`;
+        document.body.appendChild(temp);
 
     });
 }
