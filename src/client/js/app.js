@@ -28,8 +28,13 @@ function printData(weatherData, callback){
     const startWeather = weatherData.data[weatherData.data.length - 1];
     callback(weatherData.city_name).then(pixaData => {
         const img = document.createElement('img');
+        const temp = document.createElement('div');
         img.src = pixaData.hits[getRandomInt(pixaData.hits.length - 1)].webformatURL;
         document.body.appendChild(img);
+        const maxTemp = startWeather.max_temp;
+        const minTemp = startWeather.min_temp;
+        temp.textContent = `Max Temp: ${maxTemp} Min Temp: ${minTemp}`;
+
     });
 }
 
