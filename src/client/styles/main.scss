@@ -1,4 +1,54 @@
-form{
-    display: flex;
-    flex-direction: column;
+.form{
+    grid-area: form;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        *{
+            margin-top: .35em;
+        }
+    }
+}
+
+.trip{
+    display: grid;
+    grid-area: trip;
+    max-width: 100%;
+    grid-template-areas: 
+    "trip-sec trip-sec"
+    "city-sec city-sec";
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.trip-info{
+    grid-area: trip-sec;
+}
+
+.city-temp {
+    grid-area: city-sec;
+    img {
+        max-width: 300px;
+    }
+}
+
+.body {
+    display: grid;
+    grid-template-areas: 
+    "form form form form form form form form"
+    "trip trip trip trip trip trip trip trip";
+    gap: 10px;
+    grid-template-columns: repeat(8, 1fr);
+
+    div{
+        border: 1px solid bisque;
+    }
 }
