@@ -4,6 +4,7 @@ import {getGeoLocation, getLongitudeLatitude} from './geoNames';
 import { getWeatherData } from './weather';
 import { getPixaBayData } from './pixabay';
 import '../styles/main.scss';
+import 'bootstrap';
 
 
 
@@ -30,8 +31,8 @@ function printData(weatherData, startDate, endDate, countdown, callback){
     const startWeather = weatherData.data[weatherData.data.length - 1];
     callback(weatherData.city_name).then(pixaData => {
         const tripSection = document.querySelector('.trip');
-        tripSection.appendChild(addTripInfo(weatherData, startDate, endDate, countdown));
-        tripSection.appendChild(addTempInfo(startWeather, pixaData));
+        //tripSection.appendChild(addTripInfo(weatherData, startDate, endDate, countdown));
+        addImages(pixaData);
     });
 }
 
@@ -66,21 +67,17 @@ function addTripInfo(weatherJson, startDate, endDate, countdown){
     return tripInfo;
 }
 
-function addTempInfo(startWeather, pixaData){
-    const tempInfo = document.createElement('div');
-    const img = document.createElement('img');
-    const tempSection = document.createElement('div');
-    const maxTemp = startWeather.max_temp;
-    const minTemp = startWeather.min_temp;
-
-    tempInfo.classList.add("city-temp");
-
-    img.src = pixaData.hits[getRandomInt(pixaData.hits.length - 1)].webformatURL;
-    tempSection.textContent = `Max Temp: ${maxTemp} Min Temp: ${minTemp}`;
-
-    tempInfo.appendChild(img);
-    tempInfo.appendChild(tempSection);
-
-    return tempInfo
-
+function addImages(pixaData){
+    const carousel = document.querySelector('.carousel-inner');
+    pixaData.hits.forEach( item => {
+        const carItem = document.createElement('div');
+        const img = document.createElement('img');
+        carItem.classList.add('carousel-item');
+        img.src = item.webformatURL;
+        img.alt = item.tags;
+        
+        carItem.appendChild(img);
+        carousel.appendChild(carItem);
+    });
 }
+

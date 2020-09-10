@@ -21,11 +21,11 @@ header {
     border-radius: 2%;
     background-color: #FEDCBA;
     display: grid;
-    grid-area: trip;
+    //grid-area: trip;
     max-width: 100%;
-    grid-template-areas: 
-    "pic-sec pic-sec"
-    "trip-sec trip-sec";
+    //grid-template-areas: 
+    //"pic-sec pic-sec"
+    //"trip-sec trip-sec";
     gap: 10px;
     grid-template-columns: repeat(2, 1fr);
 
@@ -45,9 +45,10 @@ header {
 }
 
 .pic-sec {
-    grid-area: pic-sec;
+    
     img {
-        max-width: 300px;
+        width: 300px;
+        height: 300px;
         border-radius: 3px;
     }
 }
