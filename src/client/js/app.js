@@ -31,14 +31,7 @@ function printData(weatherData, startDate, endDate, countdown, callback){
     callback(weatherData.city_name).then(pixaData => {
         const tripSection = document.querySelector('.trip');
         tripSection.appendChild(addTripInfo(weatherData, startDate, endDate, countdown));
-        const img = document.createElement('img');
-        const tempSection = document.createElement('div');
-        img.src = pixaData.hits[getRandomInt(pixaData.hits.length - 1)].webformatURL;
-        tripSection.appendChild(img);
-        const maxTemp = startWeather.max_temp;
-        const minTemp = startWeather.min_temp;
-        tempSection.textContent = `Max Temp: ${maxTemp} Min Temp: ${minTemp}`;
-        tripSection.appendChild(tempSection);
+        tripSection.appendChild(addTempInfo(startWeather, pixaData));
     });
 }
 
@@ -49,6 +42,7 @@ function getRandomInt(num){
 
 //Gets the CityData and adds it to the screen
 function addTripInfo(weatherJson, startDate, endDate, countdown){
+    
     //Init Elements
     const tripInfo = document.createElement('div');
     const cityInfo = document.createElement('h3');
@@ -70,6 +64,23 @@ function addTripInfo(weatherJson, startDate, endDate, countdown){
     tripInfo.appendChild(countElement);
 
     return tripInfo;
+}
 
+function addTempInfo(startWeather, pixaData){
+    const tempInfo = document.createElement('div');
+    const img = document.createElement('img');
+    const tempSection = document.createElement('div');
+    const maxTemp = startWeather.max_temp;
+    const minTemp = startWeather.min_temp;
+
+    tempInfo.classList.add("city-temp");
+
+    img.src = pixaData.hits[getRandomInt(pixaData.hits.length - 1)].webformatURL;
+    tempSection.textContent = `Max Temp: ${maxTemp} Min Temp: ${minTemp}`;
+
+    tempInfo.appendChild(img);
+    tempInfo.appendChild(tempSection);
+
+    return tempInfo
 
 }

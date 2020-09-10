@@ -1,0 +1,62 @@
+header {
+    text-align: center;
+}
+
+.form{
+    grid-area: form;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        *{
+            margin-top: .35em;
+        }
+    }
+}
+
+.trip{
+    padding: 0.8em;
+    border-radius: 2%;
+    background-color: #FEDCBA;
+    display: grid;
+    grid-area: trip;
+    max-width: 100%;
+    grid-template-areas: 
+    "pic-sec pic-sec"
+    "trip-sec trip-sec";
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.trip-info{
+    grid-area: trip-sec;
+
+    p{
+        margin: 0 0 0.2em 0;
+    }
+}
+
+.pic-sec {
+    grid-area: pic-sec;
+    img {
+        max-width: 300px;
+        border-radius: 3px;
+    }
+}
+
+.body {
+    display: grid;
+    grid-template-areas: 
+    "form form form form form form form form"
+    "trip trip trip trip trip trip trip trip";
+    gap: 10px;
+    grid-template-columns: repeat(8, 1fr);
+}
