@@ -12,12 +12,10 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.static("dist"));
-app.listen(3000, () => console.log("Running on Port 8080"));
+app.listen(3000, () => console.log("Running on Port 3000"));
 
 async function getWeather(request, response) {
-    console.log(request.body);
     let weatherObj = await getJson(request.body.url);
-    console.log(weatherObj);
     return response.send(weatherObj);
 }
 
