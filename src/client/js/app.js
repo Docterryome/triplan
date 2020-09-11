@@ -28,10 +28,8 @@ button.addEventListener("click", (event) => {
 //Get Min and Max Weather Data and display it on the screen
 function printData(weatherData, startDate, endDate, countdown, callback){
     console.log(weatherData);
-    const startWeather = weatherData.data[weatherData.data.length - 1];
     callback(weatherData.city_name).then(pixaData => {
-        const tripSection = document.querySelector('.trip');
-        //tripSection.appendChild(addTripInfo(weatherData, startDate, endDate, countdown));
+        addTripInfo(weatherData, startDate, endDate, countdown);
         addImages(pixaData);
     });
 }
@@ -45,24 +43,36 @@ function getRandomInt(num){
 function addTripInfo(weatherJson, startDate, endDate, countdown){
     
     //Init Elements
-    const tripInfo = document.createElement('div');
+    const tripInfo = document.querySelector('.trip-info');
     const cityInfo = document.createElement('h3');
     const startElement = document.createElement('p');
     const countElement = document.createElement('p');
+    const tempInfo = document.createElement('p');
+    const tripLengthElement = document.createElement('p');
+    const tripLength = getDays(startDate, endDate);
 
-    //Init Classes
-    tripInfo.classList.add('trip-info');
-    cityInfo.classList.add('city-info');
+    //Get Weather
+    const startWeather = weatherJson.data[weatherJson.data.length - 1];
+    
+    //Clear tripInfo
+    tripInfo.innerHTML = '';
 
     //Add Text
-    cityInfo.textContent = `Trip City: ${weatherJson.city_name}, ${weatherJson.country_code}`;
-    startElement.textContent = `Trip Date: ${startDate}`;
+    cityInfo.textContent = `${weatherJson.city_name}, ${weatherJson.country_code}`;
     countElement.textContent = `You have ${countdown} days until your trip`;
+    startElement.innerHTML = `<b>Start Date:</b> ${startDate.toDateString()}`;
+    tempInfo.innerHTML = `<em>Estimated Temp:</em> Low: ${startWeather.min_temp}&deg; &rightarrow; High: ${startWeather.max_temp}&deg;`;
+    tripLengthElement.textContent = `The length of your trip: ${tripLength} days`
 
     //Build Element
     tripInfo.appendChild(cityInfo);
-    tripInfo.appendChild(startElement);
     tripInfo.appendChild(countElement);
+    tripInfo.appendChild(startElement);
+    tripInfo.appendChild(tempInfo);
+    tripInfo.appendChild(tripLengthElement);
+    
+
+    console.log(tripInfo);
 
     return tripInfo;
 }

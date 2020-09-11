@@ -40,3 +40,15 @@ form {
     }
 }
 
+.trip-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer{
+    text-align: center;
+    padding-top: 1em;
+    background-color: #313131;
+}
+
