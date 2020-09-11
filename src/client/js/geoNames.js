@@ -1,6 +1,11 @@
 //Get geoLocation
 export const getGeoLocation = async (city) => {
-    const response = await fetch(`http://api.geonames.org/searchJSON?q=${city}&fuzzy=0.8&username=docjenkins`);
+    const response = await fetch(`http://api.geonames.org/searchJSON?q=${city}&fuzzy=0.8&username=docjenkins`, {
+        method: 'GET',
+        headers: {
+            "Content-Security-Policy": "default-src http://*.geonames.org"
+        }
+    });
     return response.json();
 }
 
