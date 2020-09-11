@@ -5,7 +5,11 @@ import {postData} from './request';
 //WeatherBit api key
 const weatherBitAPI = "https://api.weatherbit.io/v2.0";
 const API_KEY = "09959aeb527c4c0589b4fc648879cd70";
-// LOCALSERVER = "http://localhost:3000";
+let request = '/getWeather';
+
+if(process.env.NODE_ENV === 'development'){
+    request = 'http://localhost:3000/getWeather';
+}
 
 
 export const getWeatherData = async (cityData, date) => {
@@ -18,7 +22,7 @@ export const getWeatherData = async (cityData, date) => {
     if( daysAhead < 16){
         weatherURL = { url: `${weatherBitAPI}/forecast/daily?days=${daysAhead}&lat=${cityData.lat}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
         console.log(JSON.stringify(weatherURL));
-        response = await postData(`/getWeather`, weatherURL);
+        response = await postData(request, weatherURL);
         return response.json();
     }
     //Get 16 day forcast
