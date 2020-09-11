@@ -10,13 +10,22 @@ header {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    div{
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+    }
     button {
         background-color: #0F4C75;
         color: #EAEAEA;
         margin-top: 1em;
+    }
+
+    input {
+        border: none;
+        border-radius: 2%;
     }
 }
 
