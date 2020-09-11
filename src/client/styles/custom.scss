@@ -1,12 +1,14 @@
 body {
-    background-color: #525252 !important;
-    color: #EAEAEA !important;
+    //background-color: #525252 !important;
+    //color: #EAEAEA !important;
+    min-height: 100vh;
+    display: block;
+    position: relative;
 }
 
 header {
     text-align: center;
-    padding-bottom: 1em;
-    background-color: #313131;
+    background-color: #AFAFAF;
 }
 
 form {
@@ -52,6 +54,7 @@ form {
 
 .trip-info{
     margin-top: 1em;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,9 +62,12 @@ form {
 }
 
 footer{
+    bottom: 0;
+    width: 100%;
+    position: absolute;
     text-align: center;
     padding-top: 1em;
-    background-color: #313131;
+    background-color: #AFAFAF;
 }
 
 .trip {
@@ -69,5 +75,21 @@ footer{
     grid-template-areas:
     "picture"
     "info";
+}
+
+@media(min-width: 900px){
+    .trip {
+        grid-template-areas:
+        "picture info";
+    }
+
+    .trip-info{
+        margin-top: 5em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        grid-area: info;
+    }
+    
 }
 
