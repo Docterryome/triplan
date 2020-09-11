@@ -28,7 +28,7 @@ button.addEventListener("click", (event) => {
 //Get Min and Max Weather Data and display it on the screen
 function printData(weatherData, startDate, endDate, countdown, callback){
     console.log(weatherData);
-    callback(weatherData.city_name).then(pixaData => {
+    callback(document.getElementById('city').value).then(pixaData => {
         addTripInfo(weatherData, startDate, endDate, countdown);
         addImages(pixaData);
     });
