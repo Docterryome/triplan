@@ -69,6 +69,7 @@ function addTripInfo(weatherJson, startDate, endDate, countdown){
 
 function addImages(pixaData){
     const carousel = document.querySelector('.carousel-inner');
+    carousel.innerHTML = '';
     pixaData.hits.forEach( item => {
         const carItem = document.createElement('div');
         const img = document.createElement('img');
@@ -79,5 +80,8 @@ function addImages(pixaData){
         carItem.appendChild(img);
         carousel.appendChild(carItem);
     });
+    //set active
+    const innerCarousel = document.querySelector('.carousel-item');
+    innerCarousel.classList.add('active');
 }
 
