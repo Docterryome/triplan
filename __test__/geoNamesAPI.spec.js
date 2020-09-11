@@ -1,0 +1,1 @@
+import {getGeoLocation, getLatitudeLongitude } from '../src/client/js/geoNames';
