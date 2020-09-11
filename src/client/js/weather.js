@@ -3,9 +3,9 @@ import {getDays} from './countdown';
 import {postData} from './request';
 
 //WeatherBit api key
-const weatherBitAPI = "http://api.weatherbit.io/v2.0";
+const weatherBitAPI = "https://api.weatherbit.io/v2.0";
 const API_KEY = "09959aeb527c4c0589b4fc648879cd70";
-const LOCALSERVER = "http://localhost:3000";
+// LOCALSERVER = "http://localhost:3000";
 
 
 export const getWeatherData = async (cityData, date) => {
@@ -18,7 +18,7 @@ export const getWeatherData = async (cityData, date) => {
     if( daysAhead < 16){
         weatherURL = { url: `${weatherBitAPI}/forecast/daily?days=${daysAhead}&lat=${cityData.lat}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
         console.log(JSON.stringify(weatherURL));
-        response = await postData(`${LOCALSERVER}/getWeather`, weatherURL);
+        response = await postData(`/getWeather`, weatherURL);
         return response.json();
     }
     //Get 16 day forcast
@@ -27,7 +27,7 @@ export const getWeatherData = async (cityData, date) => {
         const startDate = parseEnDateByYear(dtFormat.format(date), 1);
         const endDate = parseDateAddDays(startDate, 1);
         weatherURL = {url: `${weatherBitAPI}/history/daily?lat=${cityData.lat}&start_date=${startDate}&end_date=${endDate}&lon=${cityData.lng}&units=I&key=${API_KEY}`};
-        response = await postData(`${LOCALSERVER}/getWeather`, weatherURL);
+        response = await postData(`/getWeather`, weatherURL);
         return response.json();
     }
 }
