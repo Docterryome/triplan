@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is the capstone project for udacity, the point of the project is to showcase my skills as a front-end developer taught in the class.
+This is the capstone project for udacity, the point of the project is to showcase my skills as a front-end developer taught in the class. The completed project page is here: [Triplan](https://sheltered-scrubland-14079.herokuapp.com/)
 
 ## Motivation
 
@@ -43,6 +43,13 @@ API:
 * [Weatherbit](https://www.weatherbit.io/account/create)
 * [Pixabay](https://pixabay.com/api/docs/)
 
-## TODO
+## API KEYS
 
-Go to [project](https://github.com/Docterryome/triplan/projects) page for this application to see what needs to be done for the application.
+I have removed the API keys in the project. In order to run the application you need to add the api key inside a .env file.
+
+**Example:**
+
+```properties
+PIXABAY_KEY=${PIXABAY API}
+WEATHERBIT_KEY=${WEATHERBIT API}
+```
