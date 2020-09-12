@@ -4,7 +4,7 @@ import {postData} from './request';
 
 //WeatherBit api key
 const weatherBitAPI = "https://api.weatherbit.io/v2.0";
-const API_KEY = "09959aeb527c4c0589b4fc648879cd70";
+const API_KEY = process.env.WEATHERBIT_KEY;
 let request = '/getWeather';
 
 if(process.env.NODE_ENV === 'development'){

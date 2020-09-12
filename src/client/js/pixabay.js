@@ -1,6 +1,6 @@
 
 const pixaBayAPI = "https://pixabay.com/api/";
-const apiKey = "18199976-3b9dec90f3972713b15836d35";
+const apiKey = process.env.PIXABAY_KEY;
 export const getPixaBayData = async (searchQuery) => {
     const searchParam = plusURI(`${searchQuery} city`);
     console.log(searchParam);

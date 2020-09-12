@@ -18,7 +18,6 @@ button.addEventListener("click", (event) => {
     const endDate = parseDate(document.getElementById('endDate').value);
     const countDown = getDays(startDate, Date.now());
     getGeoLocation(document.getElementById('city').value).then(data => {
-            console.log(data);
             const cityCord = getLongitudeLatitude(data);
             //Get weather data by inputing the city Cordinates and also input the date
             getWeatherData(cityCord, startDate).then(data => printData(data, startDate, endDate, countDown, getPixaBayData));
@@ -71,9 +70,6 @@ function addTripInfo(weatherJson, startDate, endDate, countdown){
     tripInfo.appendChild(startElement);
     tripInfo.appendChild(tempInfo);
     tripInfo.appendChild(tripLengthElement);
-    
-
-    console.log(tripInfo);
 
     return tripInfo;
 }
